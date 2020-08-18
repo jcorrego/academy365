@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
@@ -23,7 +22,6 @@ define('LARAVEL_BASE_DIR', __DIR__ . '/laravel');
 */
 
 require LARAVEL_BASE_DIR.'/vendor/autoload.php';
-
 /*
 |--------------------------------------------------------------------------
 | Turn On The Lights
@@ -37,7 +35,6 @@ require LARAVEL_BASE_DIR.'/vendor/autoload.php';
 */
 
 $app = require_once LARAVEL_BASE_DIR.'/bootstrap/app.php';
-
 /*
 |--------------------------------------------------------------------------
 | Run The Application
@@ -49,7 +46,6 @@ $app = require_once LARAVEL_BASE_DIR.'/bootstrap/app.php';
 | and wonderful application we have prepared for them.
 |
 */
-
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
 $response = $kernel->handle(
