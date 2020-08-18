@@ -1,12 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mx-auto">
+    <div class="my-6">
+    <div class="container mx-auto pt-10">
         <div class="flex flex-wrap justify-center">
             <div class="w-full max-w-sm">
                 <div class="flex flex-col break-words bg-white border-2 rounded shadow-md">
 
-                    <div class="font-semibold bg-gray-200 text-gray-700 py-3 px-6 mb-0">
+                    <div class="font-semibold bg-blue-500 text-blue-50 py-3 px-6 mb-0">
                         {{ __('Login') }}
                     </div>
 
@@ -73,5 +74,6 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection
