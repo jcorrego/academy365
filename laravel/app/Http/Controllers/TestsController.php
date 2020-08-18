@@ -35,7 +35,7 @@ class TestsController extends Controller
         foreach ($questions as $question) {
             if(request('question_'.$question->id,'') == $question->answer)$score++;
         }
-        auth()->user()->tests()->syncWithoutDetaching([$test->id => ['answers'=>\GuzzleHttp\json_encode(request()->except('_token')),'score'=>$score]]);
+        auth()->user()->tests()->syncWithoutDetaching([$test->id => ['answers'=>json_encode(request()->except('_token')),'score'=>$score]]);
         return redirect()->route('tests')->with(['status_title'=> 'Test submitted!','status_message'=>'Your answers had been saved']);
     }
 }
