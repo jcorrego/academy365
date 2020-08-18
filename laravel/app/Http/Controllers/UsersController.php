@@ -28,7 +28,7 @@ class UsersController extends Controller
     {
         $certificates =  collect([]);
         foreach (auth()->user()->tests as $test){
-            if(round(100*$test->pivot->score/$test->questions()->count()) > 80){
+            if(round(100*$test->pivot->score/$test->questions()->count()) >= 50){
                 $certificates->push($test);
             }
         }
