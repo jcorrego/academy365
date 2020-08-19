@@ -13,7 +13,7 @@
 </head>
 <body class="bg-gray-100 h-screen antialiased leading-none">
 <div id="app">
-    <div x-data="{ sidebarOpen: true }" class="h-screen flex overflow-hidden bg-gray-100">
+    <div x-data="{ sidebarOpen: false }" class="h-screen flex overflow-hidden bg-gray-100">
         @auth
             @include('layouts.partials.sidebar')
         @endauth
