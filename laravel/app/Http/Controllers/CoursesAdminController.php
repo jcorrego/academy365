@@ -17,8 +17,7 @@ class CoursesAdminController extends Controller
     }
     public function create()
     {
-        $courses = Course::all()->pluck('name', 'id');
-        return view('orders.create',['courses' => $courses]);
+        return view('courses.create');
     }
 
     public function edit(Course $course)
