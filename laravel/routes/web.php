@@ -35,5 +35,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/courses/create', 'CoursesAdminController@create')->name('course-create');
     Route::get('admin/courses/{course}/edit', 'CoursesAdminController@edit')->name('course-edit');
     Route::put('admin/courses/{course}', 'CoursesAdminController@update')->name('course-update');
+    Route::post('admin/courses', 'CoursesAdminController@store')->name('course-store');
 });
 
