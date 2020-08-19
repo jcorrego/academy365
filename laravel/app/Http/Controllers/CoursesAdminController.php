@@ -25,6 +25,19 @@ class CoursesAdminController extends Controller
     {
         return view('courses.admin.edit', [ 'course' => $course]);
     }
+
+    public function store()
+    {
+        $this->validate(request(), [
+            'name'  => 'required|min:3',
+            'description'  => 'required',
+        ]);
+
+        $course = Course::create(request()->only(['name', 'description']));
+
+        return redirect()->route('course-edit',$course->id)->with(['status_title' => 'Course created!', 'status_message' => 'Your data has been saved']);
+    }
+
     public function update(Course $course)
     {
         $this->validate(request(), [
