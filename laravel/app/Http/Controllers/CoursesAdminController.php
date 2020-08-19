@@ -17,7 +17,7 @@ class CoursesAdminController extends Controller
     }
     public function create()
     {
-        return view('courses.create');
+        return view('courses.admin.create');
     }
 
     public function edit(Course $course)
