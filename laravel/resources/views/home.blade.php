@@ -40,7 +40,7 @@
                     <div class="-mt-px flex">
                         <div class="w-0 flex-1 flex border-r border-gray-200">
                             <span class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm leading-5 text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 transition ease-in-out duration-150">
-                                You dont have an active license to take this course
+                                None of the course has been assigned to you yet if you have purchased one you can drop an email to help@academy365.net & we will assign it to you within 24 hours of purchase or you can visit the website to buy one (https://www.academy365.net)
                             </span>
                         </div>
                     </div>

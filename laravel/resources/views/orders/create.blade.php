@@ -18,7 +18,7 @@
                 <div class="mt-5 md:mt-0 md:col-span-2">
                     <div class="shadow sm:rounded-md sm:overflow-hidden">
                         <div class="px-4 py-5 bg-white sm:p-6 space-y-6">
-                            <x-forms.input id="email" label="User email" placeholder="user@example.com"></x-forms.input>
+                            <x-forms.input id="email" label="User email" placeholder="user@example.com" value="{{ old('email',($email ?? '')) }}"></x-forms.input>
                             <x-forms.input id="wp_order" label="Ecommerce order" placeholder=""></x-forms.input>
                             <x-forms.select id="course_id" label="Course" :options="$courses"></x-forms.select>
                             <x-forms.input id="valid" label="Valid until" help="This is the final date for the user to access the course" placeholder="YYYY-MM-DD"></x-forms.input>

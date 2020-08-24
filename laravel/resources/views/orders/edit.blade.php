@@ -22,7 +22,7 @@
                             <x-forms.input id="email" label="User email" placeholder="user@example.com" value="{{ $order->email }}"></x-forms.input>
                             <x-forms.input id="wp_order" label="Ecommerce order" placeholder="" value="{{ $order->wp_order }}"></x-forms.input>
                             <x-forms.select id="course_id" label="Course" value="{{ $order->course_id }}" :options="$courses"></x-forms.select>
-                            <x-forms.input id="valid" label="Valid until" help="This is the final date for the user to access the course" placeholder="YYYY-MM-DD" value="{{ $order->valid->toDateString() }}"></x-forms.input>
+                            <x-forms.input id="valid" label="Valid until" help="This is the final date for the user to access the course" placeholder="YYYY-MM-DD" value="{{ $order->valid ? $order->valid->toDateString():'' }}"></x-forms.input>
                         </div>
                         <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                             <x-forms.button type="submit"><i class="fad fa-save mr-2"></i>Save</x-forms.button>

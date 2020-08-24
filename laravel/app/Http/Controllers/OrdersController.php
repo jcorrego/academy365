@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Test;
+use App\User;
 use App\Order;
 use App\Course;
 use App\Models\Tests\Question;
@@ -20,6 +21,12 @@ class OrdersController extends Controller
     {
         $courses = Course::all()->pluck('name', 'id');
         return view('orders.create',['courses' => $courses]);
+    }
+    
+    public function userCreate(User $user)
+    {
+        $courses = Course::all()->pluck('name', 'id');
+        return view('orders.create',['courses' => $courses, 'email'=>$user->email]);
     }
 
     public function edit(Order $order)

@@ -41,4 +41,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Test::class)->withPivot(['score','answers'])->withTimestamps();
     }
+
+    public function orders()
+    {
+        return Order::where('email',$this->email)->get();
+    }
 }

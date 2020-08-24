@@ -11,6 +11,7 @@
                     <img src="{{ asset('img/logos/academy365.png') }}" alt="Academy365" class="h-9">
                 </a>
             @endguest
+                <div class="text-sm italic text-indigo-500 flex items-center"><i class="fad fa-question-circle mr-2"></i> Have some issues or problems? Drop an email to help@academy365.net</div>
         </div>
         <div class="ml-4 flex items-center md:ml-6">
             @guest

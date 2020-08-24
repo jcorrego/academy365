@@ -21,6 +21,9 @@ class ModulesController extends Controller
 
     public function play($hash)
     {
+        if(!request()->server('HTTP_REFERER')){
+            return redirect()->route('home')->with(['status_type'=>'error','status_title' => 'Not authorized!', 'status_message' => 'You are not authorized to view this video directly.']);
+        }
         $module  = Module::whereRaw("md5(`id`) = '{$hash}'")->first();
         $url = $module->video;
         ini_set('memory_limit', '1024M');

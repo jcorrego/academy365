@@ -26,8 +26,11 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('admin/tests/{test}/questions/{question}', 'TestsAdminController@deleteQuestion')->name('question-delete');
     Route::post('admin/tests/{test}/questions', 'TestsAdminController@storeQuestion')->name('question-store');
     
+    Route::get('admin/users', 'UsersAdminController@index')->name('admin-users');
+    
     Route::get('admin/orders', 'OrdersController@index')->name('admin-orders');
     Route::get('admin/orders/create', 'OrdersController@create')->name('order-create');
+    Route::get('admin/orders/{user}/create', 'OrdersController@userCreate')->name('user-order-create');
     Route::get('admin/orders/{order}/edit', 'OrdersController@edit')->name('order-edit');
     Route::put('admin/orders/{order}', 'OrdersController@update')->name('order-update');
     Route::post('admin/orders', 'OrdersController@store')->name('order-store');

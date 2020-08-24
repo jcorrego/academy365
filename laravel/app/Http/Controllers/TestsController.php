@@ -36,6 +36,8 @@ class TestsController extends Controller
             if(request('question_'.$question->id,'') == $question->answer)$score++;
         }
         auth()->user()->tests()->syncWithoutDetaching([$test->id => ['answers'=>json_encode(request()->except('_token')),'score'=>$score]]);
-        return redirect()->route('tests')->with(['status_title'=> 'Test submitted!','status_message'=>'Your answers had been saved']);
+        $percentage = round(100*$score/$test->questions->count());
+        if($percentage >= 50) return redirect()->route('certificate-view',$test->id)->with(['test_passed'=>$test->id]);
+        else return redirect()->route('tests')->with(['test_failed'=>$test->id]);
     }
 }

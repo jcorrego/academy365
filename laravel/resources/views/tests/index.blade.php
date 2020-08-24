@@ -3,6 +3,25 @@
 @section('content')
     <x-pages.header title="Available courses tests" description="These are all the available tests. In order for you to take a test, you need to have access to the related course."></x-pages.header>
     <div class="mx-auto sm:px-6 lg:px-8 mt-8">
+        @if (session('test_failed'))
+            <div class="rounded-md bg-red-50 p-4 mb-6 border border-red-500">
+                <div class="flex">
+                    <div class="flex-shrink-0">
+                        <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h3 class="text-sm leading-5 font-medium text-red-800">
+                            Bad Luck!
+                        </h3>
+                        <div class="mt-2 text-sm leading-5 text-red-700">
+                            <p>Maybe next time you will be able to perform much better. Click <a href="{{ route('test-take',session('test_failed')) }}">here</a> to retake the test</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
         <div class="flex flex-col">
             <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
                 <div class="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200">
@@ -52,7 +71,11 @@
                                     @endif
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
-                                    <x-forms.button href="{{ route('test-take',$test->id) }}" size="xs"><i class="fad fa-edit mr-2"></i> {{ $user ? 'Re-take' : 'Take' }} test</x-forms.button>
+                                    @if($user && round(100*$user->pivot->score/$test->questions()->count()) < 50)
+                                        <x-forms.button href="{{ route('test-take',$test->id) }}" size="xs"><i class="fad fa-edit mr-2"></i> Re-take test</x-forms.button>
+                                    @elseif(!$user)
+                                        <x-forms.button href="{{ route('test-take',$test->id) }}" size="xs"><i class="fad fa-edit mr-2"></i> Take test</x-forms.button>
+                                    @endif
                                 </td>
                             </tr>
                         @empty
