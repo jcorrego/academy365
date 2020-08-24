@@ -24,11 +24,9 @@
                                 </a>
                             </div>
                             <div class="-ml-px w-0 flex-1 flex">
-                                <a href="#" class="text-gray-500 relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm leading-5 text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 transition ease-in-out duration-150">
-                                    <i class="fad fa-download"></i><span class="ml-3">Download (soon)</span>
-                                    <br>
+                                <a href="{{ route('certificate-download', $certificate->id) }}" class="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm leading-5 text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 transition ease-in-out duration-150">
+                                    <i class="fad fa-download"></i><span class="ml-3">Download</span>
                                 </a>
-                                
                             </div>
                         </div>
                     </div>

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
 use App\Test;
-use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class UsersController extends Controller
 {
@@ -39,5 +40,15 @@ class UsersController extends Controller
     {
         $certificate = auth()->user()->tests()->where('tests.id',$test->id)->first();
         return view('users.certificates.show',['certificate'=>$certificate]);
+    }
+
+    public function certificateDownload(Test $test)
+    {
+        $certificate = auth()->user()->tests()->where('tests.id',$test->id)->first();
+        $pdf = PDF::loadView('users.certificates.pdf',['certificate'=>$certificate])
+            ->setPaper([0, 0, 500.00, 400.00], 'portrait')
+            ->setWarnings(false);
+//        return $pdf->stream();
+        return $pdf->download('Certificate-'.auth()->user()->id . '-' . Str::slug($certificate->course->name) .'.pdf');
     }
 }

@@ -11,6 +11,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('account/certificates', 'UsersController@certificates')->name('certificates');
     Route::get('account/certificates/{test}', 'UsersController@certificateView')->name('certificate-view');
     Route::get('account/certificates/{test}/download', 'UsersController@certificateDownload')->name('certificate-download');
+    Route::get('account/certificates/{test}/download', 'UsersController@certificateDownload')->name('certificate-download');
     Route::get('modules/{hash}', 'ModulesController@show')->name('module');
     Route::get('modules/play/{hash}', 'ModulesController@play')->name('play');
     
